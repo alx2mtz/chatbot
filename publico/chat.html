@@ -1,0 +1,70 @@
+<!--chat.html-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Chatbot de Apoyo Emocional</title>
+    <ul id="messages"></ul>
+    <link rel="stylesheet" type="text/css" href="css/chat.css">
+    <style>
+        /* Agrega estilos específicos para el botón */
+        .toggle-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-window">
+            <div class="chat-header">
+                Chatbot de Apoyo Emocional
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <!-- Aquí se mostrarán los mensajes del chat -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="user-message" placeholder="Escribe tu mensaje...">
+                <button onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:3000');
+    
+        ws.addEventListener('open', (event) => {
+            console.log('WebSocket Connection Opened:', event);
+        });
+    
+        ws.addEventListener('message', (event) => {
+            console.log('WebSocket Message Received:', event.data);
+            displayMessage(event.data);
+        });
+    
+        function sendMessage() {
+            const userMessage = document.getElementById('user-message').value;
+            const chatMessages = document.getElementById('chat-messages');
+    
+            // Agregar mensaje del usuario al chat
+            chatMessages.innerHTML += `<div class="user-message">${userMessage}</div>`;
+    
+            // Enviar mensaje al servidor
+            fetch(`http://localhost:3000/chatgpt?message=${userMessage}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Agregar respuesta del chatbot al chat
+                    chatMessages.innerHTML += `<div class="bot-message">${data.response}</div>`;
+                });
+    
+            // Limpiar el campo de entrada
+            document.getElementById('user-message').value = '';
+        }
+    
+        function displayMessage(message) {
+            const chatMessages = document.getElementById('chat-messages');
+            chatMessages.innerHTML += `<div class="bot-message">${message}</div>`;
+        }
+    </script>
+    
+</body>
+</html>

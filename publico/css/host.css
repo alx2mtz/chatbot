@@ -1,0 +1,42 @@
+/* host.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../img/fondo.png');
+    background-size: cover; 
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: rgba(182, 157, 248, 1);
+    font: roboto;
+    font-weight: bold;
+    color: #000;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(103, 80, 164, 1) ;
+    color: #000;
+}
