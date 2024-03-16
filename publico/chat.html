@@ -1,17 +1,8 @@
-<!--chat.html-->
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <title>Chatbot de Apoyo Emocional</title>
     <ul id="messages"></ul>
     <link rel="stylesheet" type="text/css" href="css/chat.css">
-    <style>
-        /* Agrega estilos específicos para el botón */
-        .toggle-button {
-            margin-top: 20px;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
     <div class="chat-container">
@@ -42,23 +33,29 @@
         });
     
         function sendMessage() {
-            const userMessage = document.getElementById('user-message').value;
-            const chatMessages = document.getElementById('chat-messages');
-    
-            // Agregar mensaje del usuario al chat
-            chatMessages.innerHTML += `<div class="user-message">${userMessage}</div>`;
-    
-            // Enviar mensaje al servidor
-            fetch(`http://localhost:3000/chatgpt?message=${userMessage}`)
-                .then(response => response.json())
-                .then(data => {
-                    // Agregar respuesta del chatbot al chat
-                    chatMessages.innerHTML += `<div class="bot-message">${data.response}</div>`;
-                });
-    
-            // Limpiar el campo de entrada
-            document.getElementById('user-message').value = '';
-        }
+    const userMessage = document.getElementById('user-message').value;
+    const chatMessages = document.getElementById('chat-messages');
+
+    // Verificar si el campo de entrada está vacío
+    if (userMessage.trim() === '') {
+        return;
+    }
+
+    // Agregar mensaje del usuario al chat
+    chatMessages.innerHTML += `<div class="user-message">${userMessage}</div>`;
+
+    // Enviar mensaje al servidor
+    fetch(`http://localhost:3000/chatgpt?message=${userMessage}`)
+        .then(response => response.json())
+        .then(data => {
+            // Agregar respuesta del chatbot al chat
+            chatMessages.innerHTML += `<div class="bot-message">${data.response}</div>`;
+        });
+
+    // Limpiar el campo de entrada
+    document.getElementById('user-message').value = '';
+}
+
     
         function displayMessage(message) {
             const chatMessages = document.getElementById('chat-messages');

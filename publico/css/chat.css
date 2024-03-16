@@ -1,19 +1,25 @@
 /* style.css */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: rgba(103, 80, 164, 1);
     background-image: url('../img/fondo.png');
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
 }
 
 .chat-container {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     margin: 20px auto;
     background-color: rgba(103, 80, 164, 0.25); 
     border: 3px solid rgba(103, 80, 164, 1);
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-button {
+    margin-top: 20px;
+    text-align: center;
 }
 
 .chat-window {
@@ -36,34 +42,43 @@ body {
     padding: 8px 0;
 }
 
+.user-message, .bot-message {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 4px 0;
+}
+
 .user-message {
-    justify-content: flex-end;
     background-color: #f2f2f2;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 8px;
     margin: 4px 0;
+    width: fit-content; 
+    margin-left: auto; 
 }
 
 .bot-message {
-    justify-content: flex-start;
     background-color: rgba(182, 157, 248, 1);
     color: #fff;
     border-radius: 8px;
     padding: 8px;
     margin: 4px 0;
+    width: fit-content; 
 }
+
 
 .chat-input {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
     padding: 8px 0;
 }
 
 input[type="text"] {
     flex: 1;
-    border: 1px solid  rgba(103, 80, 164, 1);
- 
+    border: 1px solid rgba(103, 80, 164, 1);
     border-radius: 8px;
     padding: 8px;
     margin-right: 8px;
@@ -71,16 +86,109 @@ input[type="text"] {
 
 button {
     background-color: rgba(182, 157, 248, 1);
-    font: roboto;
     font-weight: bold;
     color: #000;
     border: none;
     border-radius: 20px;
     padding: 8px 16px;
     cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
+    transition: background-color 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: rgba(103, 80, 164, 1) ;
-    color: #000;
+    background-color: rgba(103, 80, 164, 1);
+    color: #fff;
 }
+
+@media only screen and (max-width: 600px) {
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgba(103, 80, 164, 1);
+        background-image: url('../img/fondo.png');
+    }
+    
+    .chat-container {
+        width: 100%;
+        height: 100vh; /* Altura del viewport */
+        max-width: 100%; /* Asegura que el contenedor no se desborde */
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* Evita que el contenido se desborde en dispositivos pequeños */
+    }
+    
+    .chat-header {
+        background-color: rgba(103, 80, 164, 1);
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    
+    .chat-messages {
+        height: calc(100% - 100px); /* Altura del viewport menos la altura del encabezado y el área de entrada */
+        overflow-y: auto; /* Permitir desplazamiento vertical si hay demasiados mensajes */
+        padding: 10px;
+    }
+    
+    .user-message {
+        background-color: rgba(103, 80, 164, 1);
+        color: #333;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 5px 0;
+        max-width: 70%; /* Ancho máximo del mensaje del usuario */
+        word-wrap: break-word; /* Romper palabras largas para evitar desbordamiento */
+    }
+    
+    .bot-message {
+        background-color: rgba(103, 80, 164, 1);
+        color: #333;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 5px 0;
+        max-width: 70%; /* Ancho máximo del mensaje del bot */
+        word-wrap: break-word; /* Romper palabras largas para evitar desbordamiento */
+    }
+    
+    .chat-input {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-top: 1px solid #ddd;
+        padding: 10px;
+    }
+    
+    .input-text {
+        flex: 1; /* El campo de entrada de texto ocupará el espacio restante */
+        border: none;
+        outline: none; /* Eliminar el resplandor al enfocar */
+        padding: 10px;
+        font-size: 16px;
+    }
+    
+    .send-button {
+        background-color: rgba(103, 80, 164, 1);
+        color: #fff;
+        font-weight: bold;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .send-button:hover {
+        background-color: rgba(103, 80, 164, 1);
+    }
+}
+

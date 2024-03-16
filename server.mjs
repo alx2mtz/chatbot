@@ -2,12 +2,12 @@
 import express from 'express';
 import http from 'http';
 import { createServer } from 'http';
-import { WebSocketServer } from 'ws'; // Cambio aquí
+import { WebSocketServer } from 'ws'; 
 import fs from 'fs';
 
 const app = express();
 const server = createServer(app);
-const wss = new WebSocketServer({ noServer: true }); // Cambio aquí
+const wss = new WebSocketServer({ noServer: true }); 
 
 app.get('/host', (req, res) => {
   fs.readFile('publico/host.html', 'utf8', (err, data) => {
@@ -39,7 +39,6 @@ wss.on('connection', (ws) => {
   
     // Convertir el mensaje a cadena de texto
     const textMessage = message.toString();
-  
     // Broadcast el mensaje a todos los clientes conectados.
     clients.forEach((client) => {
       if (client !== ws && client.readyState === ws.OPEN) {

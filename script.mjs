@@ -1,4 +1,3 @@
-//script.mjs
 import { config } from 'dotenv'
 config()
 import { OpenAI } from 'openai'
