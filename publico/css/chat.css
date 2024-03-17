@@ -1,17 +1,18 @@
-/* style.css */
+/* Estilos originales del chat */
 body {
     font-family: Arial, sans-serif;
     background-color: rgba(103, 80, 164, 1);
     background-image: url('../img/fondo.png');
     background-size: cover;
     background-position: center;
+    margin: 0; /* Establecer el margen del cuerpo a cero */
 }
 
-.chat-container {
-    width: 100%;
+.chat-container { 
+    width: calc(100% - 40px); /* Ancho ajustado para tener en cuenta los márgenes */
     max-width: 400px;
     margin: 20px auto;
-    background-color: rgba(103, 80, 164, 0.25); 
+    background-color: rgba(103, 80, 164, 0.25);
     border: 3px solid rgba(103, 80, 164, 1);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -27,6 +28,7 @@ body {
     height: 650px;
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Centramos verticalmente el chat */
 }
 
 .chat-header {
@@ -69,7 +71,6 @@ body {
     width: fit-content; 
 }
 
-
 .chat-input {
     display: flex;
     align-items: center;
@@ -101,94 +102,128 @@ button:hover {
     color: #fff;
 }
 
-@media only screen and (max-width: 600px) {
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-    
-    body {
-        font-family: Arial, sans-serif;
-        background-color: rgba(103, 80, 164, 1);
-        background-image: url('../img/fondo.png');
-    }
-    
+/* Estilos modificados para 1000px */
+@media only screen and (max-width: 1000px) {
+    /* Estilos adaptados para 1000px de ancho */
+.chat-container {
+    width: 95%; /* Ancho del 95% de la pantalla */
+    max-width: none; /* Eliminamos el ancho máximo */
+    margin: 2% auto; /* Margen del 2% arriba y abajo, centrado horizontalmente */
+}
+
+.chat-window {
+    height: 80vh; /* Altura del 80% de la ventana del navegador */
+}
+
+input[type="text"],
+button {
+    width: calc(50% - 12px); /* Ancho del 50% del contenedor, menos el espacio para el margen */
+}
+
+.user-message,
+.bot-message {
+    max-width: 80%; /* Ancho máximo del 80% del contenedor */
+}
+}
+
+/* Estilos adaptados para 1000px de ancho */
+@media only screen and (max-width: 1000px) {
     .chat-container {
-        width: 100%;
-        height: 100vh; /* Altura del viewport */
-        max-width: 100%; /* Asegura que el contenedor no se desborde */
-        margin: 0 auto;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden; /* Evita que el contenido se desborde en dispositivos pequeños */
+        width: 95%; /* Ancho del 95% de la pantalla */
+        max-width: none; /* Eliminamos el ancho máximo */
+        margin: 2% auto; /* Margen del 2% arriba y abajo, centrado horizontalmente */
     }
-    
-    .chat-header {
-        background-color: rgba(103, 80, 164, 1);
-        color: #fff;
-        font-weight: bold;
-        text-align: center;
-        padding: 10px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+
+    .chat-window {
+        height: 80vh; /* Altura del 80% de la ventana del navegador */
     }
-    
-    .chat-messages {
-        height: calc(100% - 100px); /* Altura del viewport menos la altura del encabezado y el área de entrada */
-        overflow-y: auto; /* Permitir desplazamiento vertical si hay demasiados mensajes */
-        padding: 10px;
+
+    input[type="text"],
+    button {
+        width: calc(50% - 12px); /* Ancho del 50% del contenedor, menos el espacio para el margen */
     }
-    
-    .user-message {
-        background-color: rgba(103, 80, 164, 1);
-        color: #333;
-        border-radius: 10px;
-        padding: 10px;
-        margin: 5px 0;
-        max-width: 70%; /* Ancho máximo del mensaje del usuario */
-        word-wrap: break-word; /* Romper palabras largas para evitar desbordamiento */
-    }
-    
+
+    .user-message,
     .bot-message {
-        background-color: rgba(103, 80, 164, 1);
-        color: #333;
-        border-radius: 10px;
-        padding: 10px;
-        margin: 5px 0;
-        max-width: 70%; /* Ancho máximo del mensaje del bot */
-        word-wrap: break-word; /* Romper palabras largas para evitar desbordamiento */
+        max-width: 80%; /* Ancho máximo del 80% del contenedor */
     }
-    
-    .chat-input {
-        display: flex;
-        align-items: center;
-        background-color: #fff;
-        border-top: 1px solid #ddd;
-        padding: 10px;
+}
+
+/* Estilos adaptados para 800px de ancho */
+@media only screen and (max-width: 800px) {
+    .chat-container {
+        width: 95%; /* Ancho del 95% de la pantalla */
+        max-width: none; /* Eliminamos el ancho máximo */
+        margin: 2% auto; /* Margen del 2% arriba y abajo, centrado horizontalmente */
     }
-    
-    .input-text {
-        flex: 1; /* El campo de entrada de texto ocupará el espacio restante */
-        border: none;
-        outline: none; /* Eliminar el resplandor al enfocar */
-        padding: 10px;
-        font-size: 16px;
+
+    .chat-window {
+        height: 80vh; /* Altura del 80% de la ventana del navegador */
     }
-    
-    .send-button {
-        background-color: rgba(103, 80, 164, 1);
-        color: #fff;
-        font-weight: bold;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        transition: background-color 0.3s;
+
+    input[type="text"],
+    button {
+        width: calc(50% - 12px); /* Ancho del 50% del contenedor, menos el espacio para el margen */
     }
-    
-    .send-button:hover {
-        background-color: rgba(103, 80, 164, 1);
+
+    .user-message,
+    .bot-message {
+        max-width: 80%; /* Ancho máximo del 80% del contenedor */
+    }
+}
+
+
+/* Estilos adaptados para 600px de ancho */
+@media only screen and (max-width: 600px) {
+    .chat-container {
+        width: 95%; /* Ancho del 95% de la pantalla */
+        max-width: none; /* Eliminamos el ancho máximo */
+        margin: 5% auto; /* Margen del 5% arriba y abajo, centrado horizontalmente */
+    }
+
+    .chat-window {
+        height: 90vh; /* Altura del 90% de la ventana del navegador */
+    }
+
+    input[type="text"] {
+        width: calc(70% - 12px); /* Ancho del 70% del contenedor, menos el espacio para el margen */
+    }
+
+    button {
+        width: calc(30% - 12px); /* Ancho del 30% del contenedor, menos el espacio para el margen */
+        font-size: 0.8em; /* Tamaño de fuente más pequeño */
+    }
+
+    .user-message,
+    .bot-message {
+        max-width: 90%; /* Ancho máximo del 90% del contenedor */
+    }
+}
+
+/* Estilos adaptados para 400px de ancho */
+@media only screen and (max-width: 400px) {
+    .chat-container {
+        width: 95%; /* Ancho del 95% de la pantalla */
+        max-width: none; /* Eliminamos el ancho máximo */
+        margin: 5% auto; /* Margen del 5% arriba y abajo, centrado horizontalmente */
+    }
+
+    .chat-window {
+        height: 90vh; /* Altura del 90% de la ventana del navegador */
+    }
+
+    input[type="text"] {
+        width: calc(70% - 12px); /* Ancho del 70% del contenedor, menos el espacio para el margen */
+    }
+
+    button {
+        width: calc(30% - 12px); /* Ancho del 30% del contenedor, menos el espacio para el margen */
+        font-size: 0.8em; /* Tamaño de fuente más pequeño */
+    }
+
+    .user-message,
+    .bot-message {
+        max-width: 90%; /* Ancho máximo del 90% del contenedor */
     }
 }
 
