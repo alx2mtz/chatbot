@@ -18,11 +18,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.toggle-button {
-    margin-top: 20px;
-    text-align: center;
-}
-
 .chat-window {
     padding: 16px;
     height: 650px;
@@ -100,30 +95,6 @@ button {
 button:hover {
     background-color: rgba(103, 80, 164, 1);
     color: #fff;
-}
-
-/* Estilos modificados para 1000px */
-@media only screen and (max-width: 1000px) {
-    /* Estilos adaptados para 1000px de ancho */
-.chat-container {
-    width: 95%; /* Ancho del 95% de la pantalla */
-    max-width: none; /* Eliminamos el ancho máximo */
-    margin: 2% auto; /* Margen del 2% arriba y abajo, centrado horizontalmente */
-}
-
-.chat-window {
-    height: 80vh; /* Altura del 80% de la ventana del navegador */
-}
-
-input[type="text"],
-button {
-    width: calc(50% - 12px); /* Ancho del 50% del contenedor, menos el espacio para el margen */
-}
-
-.user-message,
-.bot-message {
-    max-width: 80%; /* Ancho máximo del 80% del contenedor */
-}
 }
 
 /* Estilos adaptados para 1000px de ancho */
@@ -226,4 +197,3 @@ button {
         max-width: 90%; /* Ancho máximo del 90% del contenedor */
     }
 }
-

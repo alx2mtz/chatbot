@@ -1,1 +1,1 @@
-https://alx2mtz.github.io/chat/publico/chat
+https://alx2mtz.github.io/chatbot/publico/chat
